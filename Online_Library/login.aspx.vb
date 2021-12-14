@@ -1,6 +1,5 @@
 ﻿Imports System.Data.SqlClient
 Imports System.Security.Cryptography
-Imports System.Timers.Timer
 
 Public Class login
     Inherits System.Web.UI.Page
@@ -35,16 +34,11 @@ Public Class login
     Protected Sub AdminSubmit_Click(ByVal sender As Object, ByVal e As EventArgs) Handles AdminSubmit.Click
 
         Dim connection As New SqlConnection("Server = paul\sqlexpress; Database = Library; Integrated Security = true")
-
         Dim command As New SqlCommand("SELECT * FROM Admins WHERE username = @username AND target_string = @password", connection)
-
         command.Parameters.Add("@username", SqlDbType.VarChar).Value = UsernameTextBox.Text.Trim()
         command.Parameters.Add("@password", SqlDbType.VarChar).Value = SHA384Hash(PasswordTextBox.Text.Trim())
-
         Dim adapter As New SqlDataAdapter(command)
-
         Dim table As New DataTable()
-
         adapter.Fill(table)
 
         If table.Rows.Count <= 0 Then
@@ -75,16 +69,11 @@ Public Class login
     Protected Sub UserSubmit_Click(ByVal sender As Object, ByVal e As EventArgs) Handles UserSubmit.Click
 
         Dim connection As New SqlConnection("Server = paul\sqlexpress; Database = Library; Integrated Security = true")
-
         Dim command As New SqlCommand("SELECT * FROM Users WHERE username = @username AND target_string = @password", connection)
-
         command.Parameters.Add("@username", SqlDbType.VarChar).Value = UsernameTextBox.Text.Trim()
         command.Parameters.Add("@password", SqlDbType.VarChar).Value = SHA384Hash(PasswordTextBox.Text.Trim())
-
         Dim adapter As New SqlDataAdapter(command)
-
         Dim table As New DataTable()
-
         adapter.Fill(table)
 
         If table.Rows.Count <= 0 Then

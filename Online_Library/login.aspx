@@ -90,7 +90,7 @@
                     </div>
                     <div>
                         <div style="font-family: 'MS Reference Sans Serif'; font-size: 18.72px; font-weight: bold;">密碼</div>
-                        <asp:TextBox ID="PasswordTextBox" runat="server" required="required" TextMode="Password"></asp:TextBox>
+                        <asp:TextBox ID="PasswordTextBox" runat="server" TextMode="Password"></asp:TextBox>
                     </div>
                 </div>
                 <div class="my-buttons">
