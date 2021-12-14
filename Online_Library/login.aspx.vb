@@ -35,8 +35,8 @@ Public Class login
 
         Dim connection As New SqlConnection("Server = paul\sqlexpress; Database = Library; Integrated Security = true")
         Dim command As New SqlCommand("SELECT * FROM Admins WHERE username = @username AND target_string = @password", connection)
-        command.Parameters.Add("@username", SqlDbType.VarChar).Value = UsernameTextBox.Text.Trim()
-        command.Parameters.Add("@password", SqlDbType.VarChar).Value = SHA384Hash(PasswordTextBox.Text.Trim())
+        command.Parameters.Add("@username", SqlDbType.NVarChar).Value = UsernameTextBox.Text.Trim()
+        command.Parameters.Add("@password", SqlDbType.NVarChar).Value = SHA384Hash(PasswordTextBox.Text.Trim())
         Dim adapter As New SqlDataAdapter(command)
         Dim table As New DataTable()
         adapter.Fill(table)
@@ -70,8 +70,8 @@ Public Class login
 
         Dim connection As New SqlConnection("Server = paul\sqlexpress; Database = Library; Integrated Security = true")
         Dim command As New SqlCommand("SELECT * FROM Users WHERE username = @username AND target_string = @password", connection)
-        command.Parameters.Add("@username", SqlDbType.VarChar).Value = UsernameTextBox.Text.Trim()
-        command.Parameters.Add("@password", SqlDbType.VarChar).Value = SHA384Hash(PasswordTextBox.Text.Trim())
+        command.Parameters.Add("@username", SqlDbType.NVarChar).Value = UsernameTextBox.Text.Trim()
+        command.Parameters.Add("@password", SqlDbType.NVarChar).Value = SHA384Hash(PasswordTextBox.Text.Trim())
         Dim adapter As New SqlDataAdapter(command)
         Dim table As New DataTable()
         adapter.Fill(table)

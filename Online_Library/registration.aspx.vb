@@ -30,7 +30,7 @@ Public Class registration
 
         Dim connection As New SqlConnection("Server = paul\sqlexpress; Database = Library; Integrated Security = true")
         Dim command As New SqlCommand("SELECT username FROM Users WHERE username = @username", connection)
-        command.Parameters.Add("@username", SqlDbType.VarChar).Value = UsernameTextBox.Text.Trim()
+        command.Parameters.Add("@username", SqlDbType.NVarChar).Value = UsernameTextBox.Text.Trim()
         Dim adapter As New SqlDataAdapter(command)
         Dim table As New DataTable()
         adapter.Fill(table)
@@ -76,9 +76,9 @@ Public Class registration
             "INSERT INTO Users ( username, target_string, email_address ) VALUES ( @username, @password, @email );",
             connection
         )
-        command.Parameters.Add("@username", SqlDbType.VarChar).Value = UsernameTextBox.Text.Trim()
-        command.Parameters.Add("@password", SqlDbType.VarChar).Value = SHA384Hash(PasswordTextBox.Text.Trim())
-        command.Parameters.Add("@email", SqlDbType.VarChar).Value = EmailTextBox.Text.Trim()
+        command.Parameters.Add("@username", SqlDbType.NVarChar).Value = UsernameTextBox.Text.Trim()
+        command.Parameters.Add("@password", SqlDbType.NVarChar).Value = SHA384Hash(PasswordTextBox.Text.Trim())
+        command.Parameters.Add("@email", SqlDbType.NVarChar).Value = EmailTextBox.Text.Trim()
         Dim adapter As New SqlDataAdapter(command)
         Dim table As New DataTable()
         adapter.Fill(table)

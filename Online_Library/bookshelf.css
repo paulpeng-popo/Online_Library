@@ -14,7 +14,7 @@
     background-color: antiquewhite;
 }
 
-.chose-block {
+.choose-block {
     position: relative;
     margin: 2rem 0 0 50px;
     padding: 10px;
@@ -24,8 +24,16 @@
 
 .body-container {
     position: relative;
+    padding: 10px 0 0 0;
     width: 100%;
     height: auto;
+    top: 0px;
+    left: 0px;
+}
+
+tr td {
+    padding: 10px;
+    text-align: center;
 }
 
 .padding-row {

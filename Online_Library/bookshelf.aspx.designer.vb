@@ -86,13 +86,22 @@ Partial Public Class bookshelf
     Protected WithEvents AvailableCheckBox As Global.System.Web.UI.WebControls.CheckBox
 
     '''<summary>
-    '''Repeater1 control.
+    '''LibraryWindow control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Repeater1 As Global.System.Web.UI.WebControls.Repeater
+    Protected WithEvents LibraryWindow As Global.System.Web.UI.WebControls.Panel
+
+    '''<summary>
+    '''DynamicDataTable control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents DynamicDataTable As Global.System.Web.UI.WebControls.Repeater
 
     '''<summary>
     '''CategoryData control.
@@ -120,4 +129,40 @@ Partial Public Class bookshelf
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents BooksData As Global.System.Web.UI.WebControls.SqlDataSource
+
+    '''<summary>
+    '''BookWindow control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents BookWindow As Global.System.Web.UI.WebControls.Panel
+
+    '''<summary>
+    '''BookImage control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents BookImage As Global.System.Web.UI.WebControls.Image
+
+    '''<summary>
+    '''BookDetail control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents BookDetail As Global.System.Web.UI.WebControls.ListView
+
+    '''<summary>
+    '''SqlDataSource1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents SqlDataSource1 As Global.System.Web.UI.WebControls.SqlDataSource
 End Class
