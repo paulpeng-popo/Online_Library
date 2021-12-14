@@ -23,6 +23,15 @@ Partial Public Class bookshelf
     Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
 
     '''<summary>
+    '''SearchHeader control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents SearchHeader As Global.System.Web.UI.WebControls.Panel
+
+    '''<summary>
     '''BookName control.
     '''</summary>
     '''<remarks>
@@ -86,6 +95,15 @@ Partial Public Class bookshelf
     Protected WithEvents AvailableCheckBox As Global.System.Web.UI.WebControls.CheckBox
 
     '''<summary>
+    '''UserNameTop control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents UserNameTop As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''LibraryWindow control.
     '''</summary>
     '''<remarks>
@@ -140,6 +158,15 @@ Partial Public Class bookshelf
     Protected WithEvents BookWindow As Global.System.Web.UI.WebControls.Panel
 
     '''<summary>
+    '''UserNameDown control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents UserNameDown As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''BookImage control.
     '''</summary>
     '''<remarks>
@@ -149,20 +176,92 @@ Partial Public Class bookshelf
     Protected WithEvents BookImage As Global.System.Web.UI.WebControls.Image
 
     '''<summary>
-    '''BookDetail control.
+    '''Name control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents BookDetail As Global.System.Web.UI.WebControls.ListView
+    Protected WithEvents Name As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''SqlDataSource1 control.
+    '''Author control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents SqlDataSource1 As Global.System.Web.UI.WebControls.SqlDataSource
+    Protected WithEvents Author As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Publisher control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Publisher As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Year control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Year As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''BookNumber control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents BookNumber As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Pages control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Pages As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Amount control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Amount As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''SimpleRead control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents SimpleRead As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''Borrow control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Borrow As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''ReturnButton control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ReturnButton As Global.System.Web.UI.WebControls.Button
 End Class

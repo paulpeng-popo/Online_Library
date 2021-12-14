@@ -5,14 +5,17 @@ Public Class bookshelf
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
-        'Dim cookie As HttpCookie = Request.Cookies("User_Info")
-        'If cookie Is Nothing OrElse cookie("value") <> Session(cookie("key")) Then
-        'Response.Redirect("login.aspx")
-        'End If
+        Dim cookie As HttpCookie = Request.Cookies("User_Info")
+        If cookie Is Nothing OrElse cookie("value") <> Session(cookie("key")) Then
+            Response.Redirect("login.aspx")
+        End If
 
         If BookNameTextBox.Text = "" Then
             BookNameTextBox.Text = "<所有書目>"
         End If
+
+        UserNameTop.Text = "登入身分: " + Session(Session(cookie("key")))
+        UserNameDown.Text = "登入身分: " + Session(Session(cookie("key")))
 
     End Sub
 
@@ -30,10 +33,28 @@ Public Class bookshelf
         If table.Rows.Count = 1 Then
 
             Dim BookInfo As DataRow = table.AsEnumerable().First()
-            MsgBox(BookInfo("bookname").ToString())
+            BookImage.ImageUrl = "~/resources/" + BookInfo("bookimage").ToString()
+            Name.Text = BookInfo("bookname").ToString()
+            Author.Text = BookInfo("author").ToString()
+            Publisher.Text = BookInfo("publisher").ToString()
+            Year.Text = BookInfo("pubyear").ToString()
+            BookNumber.Text = BookInfo("ISBN").ToString()
+            Pages.Text = BookInfo("pages").ToString()
+            Amount.Text = BookInfo("quantity").ToString()
+
+            SearchHeader.Visible = False
+            LibraryWindow.Visible = False
+            BookWindow.Visible = True
 
         End If
 
     End Sub
 
+    Protected Sub ReturnButton_Click(sender As Object, e As EventArgs) Handles ReturnButton.Click
+
+        SearchHeader.Visible = True
+        LibraryWindow.Visible = True
+        BookWindow.Visible = False
+
+    End Sub
 End Class

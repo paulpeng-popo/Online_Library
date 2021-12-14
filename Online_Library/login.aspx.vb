@@ -60,7 +60,7 @@ Public Class login
 
             Session.Add(user_key, user_code)
             Response.Cookies.Add(cookie)
-            Response.Redirect("users_management.aspx")
+            Response.Redirect("controlpanel.aspx")
 
         End If
 
@@ -94,8 +94,19 @@ Public Class login
             cookie.Expires = DateTime.Now.AddMinutes(30)
 
             Session.Add(user_key, user_code)
+            Session.Add(user_code, UsernameTextBox.Text.Trim())
             Response.Cookies.Add(cookie)
-            Response.Redirect("bookshelf.aspx")
+
+            UsernameTextBox.Enabled = False
+            PasswordTextBox.Enabled = False
+            Register.Enabled = False
+            UserSubmit.Enabled = False
+            AdminSubmit.Enabled = False
+
+            Message.Text = "登入中，請稍後"
+            MyLabels.Visible = True
+            ScriptManager.RegisterStartupScript(Me, Page.GetType, "Script", "ShowMessage()", True)
+            Response.AddHeader("REFRESH", "1;URL=bookshelf.aspx")
 
         End If
 

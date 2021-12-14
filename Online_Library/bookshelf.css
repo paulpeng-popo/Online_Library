@@ -39,3 +39,11 @@ tr td {
 .padding-row {
     height: 40px;
 }
+
+.window-center {
+    margin: 70px 0 10px 15%;
+}
+
+strong {
+    font-size: x-large;
+}

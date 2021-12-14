@@ -16,29 +16,34 @@
             Response.ExpiresAbsolute = DateTime.Now.AddDays(-1)
             Response.CacheControl = "no-cache"
         %>
-        <div class="header-container">
-            <div id="BookText" class="choose-block">
-                <asp:Label ID="BookName" runat="server" Text="書名(或包含的字詞):" Font-Bold="True" Font-Size="Large"></asp:Label>
-                <asp:TextBox ID="BookNameTextBox" runat="server" Text="<所有書目>" Height="18px" Width="300px" AutoPostBack="True"></asp:TextBox>
+        <asp:Panel ID="SearchHeader" runat="server">
+            <div class="header-container">
+                <div id="BookText" class="choose-block">
+                    <asp:Label ID="BookName" runat="server" Text="書名(或包含的字詞):" Font-Bold="True" Font-Size="Large"></asp:Label>
+                    <asp:TextBox ID="BookNameTextBox" runat="server" Text="<所有書目>" Height="18px" Width="300px" AutoPostBack="True"></asp:TextBox>
+                </div>
+                <div id="ChoseCategory" class="choose-block">
+                    <asp:Label ID="CategoryLabel" runat="server" Text="選擇分類" Font-Bold="True" Font-Size="Large"></asp:Label>
+                    <asp:DropDownList ID="CategoryDropDownList" runat="server" Height="25px" AutoPostBack="True" AppendDataBoundItems="true"
+                        DataSourceID="CategoryData" DataTextField="category" DataValueField="category">
+                        <asp:ListItem Text="<所有種類>" Value="<所有種類>" />
+                    </asp:DropDownList>
+                </div>
+                <div id="ChoseYear" class="choose-block">
+                    <asp:Label ID="YearLabel" runat="server" Text="選擇年分" Font-Bold="True" Font-Size="Large"></asp:Label>
+                    <asp:DropDownList ID="YearDropDownList" runat="server" Height="25px" AutoPostBack="True" AppendDataBoundItems="true"
+                        DataSourceID="YearData" DataTextField="pubyear" DataValueField="pubyear">
+                        <asp:ListItem Text="<所有年份>" Value="0" />
+                    </asp:DropDownList>
+                </div>
+                <div id="FilterAvailable" class="choose-block">
+                    <asp:CheckBox ID="AvailableCheckBox" runat="server" Text="只顯示目前可借" Font-Bold="True" Font-Size="Large" AutoPostBack="True" />
+                </div>
+                <div id="UserInfo" style="float: right; padding: 10px 30px 10px 0">
+                    <asp:Label ID="UserNameTop" runat="server" Font-Bold="True" Font-Size="Large" BorderStyle="Groove" Height="30px"></asp:Label>
+                </div>
             </div>
-            <div id="ChoseCategory" class="choose-block">
-                <asp:Label ID="CategoryLabel" runat="server" Text="選擇分類" Font-Bold="True" Font-Size="Large"></asp:Label>
-                <asp:DropDownList ID="CategoryDropDownList" runat="server" Height="25px" AutoPostBack="True" AppendDataBoundItems="true"
-                    DataSourceID="CategoryData" DataTextField="category" DataValueField="category">
-                    <asp:ListItem Text="<所有種類>" Value="<所有種類>" />
-                </asp:DropDownList>
-            </div>
-            <div id="ChoseYear" class="choose-block">
-                <asp:Label ID="YearLabel" runat="server" Text="選擇年分" Font-Bold="True" Font-Size="Large"></asp:Label>
-                <asp:DropDownList ID="YearDropDownList" runat="server" Height="25px" AutoPostBack="True" AppendDataBoundItems="true"
-                    DataSourceID="YearData" DataTextField="pubyear" DataValueField="pubyear">
-                    <asp:ListItem Text="<所有年份>" Value="0" />
-                </asp:DropDownList>
-            </div>
-            <div id="FilterAvailable" class="choose-block">
-                <asp:CheckBox ID="AvailableCheckBox" runat="server" Text="只顯示目前可借" Font-Bold="True" Font-Size="Large" AutoPostBack="True" />
-            </div>
-        </div>
+        </asp:Panel>
         <div class="body-container">
             <asp:Panel ID="LibraryWindow" runat="server">
                 <asp:Repeater ID="DynamicDataTable" runat="server" DataSourceID="BooksData">
@@ -63,7 +68,8 @@
                             <td><%# Eval("pubyear") %></td>
                             <td><%# Eval("quantity") %></td>
                             <td>
-                                <asp:Button ID="Details" runat="server" Text="我要借閱" CommandArgument='<%# Eval("ISBN") %>' OnCommand="Detail_Click" /></td>
+                                <asp:Button ID="Details" runat="server" Text="我要借閱" BorderStyle="Solid" Height="30px"
+                                    CommandArgument='<%# Eval("ISBN") %>' OnCommand="Detail_Click" /></td>
                         </tr>
                     </ItemTemplate>
                     <FooterTemplate>
@@ -82,14 +88,37 @@
                 </asp:SqlDataSource>
             </asp:Panel>
             <div class="padding-row"></div>
-            <asp:Panel ID="BookWindow" runat="server" Visible="true">
+            <asp:Panel ID="BookWindow" runat="server" Visible="false" CssClass="window-center">
+                <div style="float: right; padding: 10px 30px 10px 0">
+                    <asp:Label ID="UserNameDown" runat="server" Font-Bold="True" Font-Size="Large" BorderStyle="Groove" Height="30px"></asp:Label>
+                </div>
                 <div style="display: inline-block">
                     <asp:Image ID="BookImage" runat="server" Height="280px" Width="200px" />
                 </div>
-                <div style="display: inline-block">
-                    <asp:ListView ID="BookDetail" runat="server" style="margin-top: 0px">
-                    </asp:ListView>
-                    <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
+                <div style="display: inline-block; height: 280px; width: 550px;">
+                    <ul>
+                        <li><strong>書名:</strong>
+                            <asp:Label ID="Name" runat="server" Text="" Font-Size="Large"></asp:Label></li>
+                        <li><strong>作者:</strong>
+                            <asp:Label ID="Author" runat="server" Text="" Font-Size="Large"></asp:Label></li>
+                        <li><strong>出版社:</strong>
+                            <asp:Label ID="Publisher" runat="server" Text="" Font-Size="Large"></asp:Label></li>
+                        <li><strong>出版年份:</strong>
+                            <asp:Label ID="Year" runat="server" Text="" Font-Size="Large"></asp:Label><strong>年</strong></li>
+                        <li><strong>國際標準書號:</strong>
+                            <asp:Label ID="BookNumber" runat="server" Text="" Font-Size="Large"></asp:Label></li>
+                        <li><strong>總頁數:</strong>
+                            <asp:Label ID="Pages" runat="server" Text="" Font-Size="Large"></asp:Label><strong>頁</strong></li>
+                        <li><strong>可借閱本數:</strong>
+                            <asp:Label ID="Amount" runat="server" Text="" Font-Size="Large"></asp:Label><strong>本</strong></li>
+                    </ul>
+                    <div style="position: relative; bottom: -70px; float: left;">
+                        <asp:Button ID="SimpleRead" runat="server" Text="試閱" BorderStyle="Inset" Height="30px" />
+                        <asp:Button ID="Borrow" runat="server" Text="我要借書" BorderStyle="Inset" Height="30px" />
+                    </div>
+                    <div style="position: relative; bottom: -70px; float: right;">
+                        <asp:Button ID="ReturnButton" runat="server" Text="返回搜尋頁" BorderStyle="Outset" Height="30px" />
+                    </div>
                 </div>
             </asp:Panel>
         </div>

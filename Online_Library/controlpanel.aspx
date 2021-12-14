@@ -14,15 +14,19 @@
         <div class="panel panel-default" style="width: 100vw; height: 100vh; padding: 10px; margin: 0">
             <div id="Tabs" role="tabpanel">
                 <ul class="nav nav-tabs" role="tablist">
-                    <li class="active"><a href="#personal" aria-controls="personal" role="tab" data-toggle="tab">Personal</a></li>
-                    <li><a href="#employment" aria-controls="employment" role="tab" data-toggle="tab">Employment</a></li>
+                    <li class="active"><a href="#users_management" aria-controls="users" role="tab" data-toggle="tab">管理使用者</a></li>
+                    <li><a href="#books_CRUD" aria-controls="library" role="tab" data-toggle="tab">管理圖書</a></li>
+                    <li><a href="#library_cards" aria-controls="cards" role="tab" data-toggle="tab">管理使用者借閱狀況</a></li>
                 </ul>
                 <div class="tab-content" style="padding-top: 10px">
-                    <div role="tabpanel" class="tab-pane active" id="personal">
-                        <iframe id="iframePersonal" src="login.aspx" style="width: 98.5vw; height: 90vh; padding: 10px; margin: 0"></iframe>
+                    <div role="tabpanel" class="tab-pane active" id="users_management">
+                        <iframe id="iframeUsers" src="users_management.aspx" style="width: 98.5vw; height: 90vh; padding: 10px; margin: 0"></iframe>
                     </div>
-                    <div role="tabpanel" class="tab-pane" id="employment">
-                        <iframe id="IframeEmployment" src="registration.aspx" style="width: 98.5vw; height: 90vh; padding: 10px; margin: 0"></iframe>
+                    <div role="tabpanel" class="tab-pane" id="books_CRUD">
+                        <iframe id="IframeLibrary" src="login.aspx" style="width: 98.5vw; height: 90vh; padding: 10px; margin: 0"></iframe>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="library_cards">
+                        <iframe id="IframeCards" src="registration.aspx" style="width: 98.5vw; height: 90vh; padding: 10px; margin: 0"></iframe>
                     </div>
                 </div>
             </div>

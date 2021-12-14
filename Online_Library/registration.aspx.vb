@@ -19,10 +19,10 @@ Public Class registration
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
-        Dim cookie As HttpCookie = Request.Cookies("User_Info")
-        If cookie IsNot Nothing Then
-            Response.Redirect("login.aspx")
-        End If
+        'Dim cookie As HttpCookie = Request.Cookies("User_Info")
+        'If cookie IsNot Nothing Then
+        'Response.Redirect("login.aspx")
+        'End If
 
     End Sub
 
@@ -91,7 +91,7 @@ Public Class registration
         PasswordAgainRow.Visible = False
         Register.Visible = False
         Change.Visible = False
-        Response.AddHeader("REFRESH", "5;URL=login.aspx")
+        Response.AddHeader("REFRESH", "2;URL=login.aspx")
 
     End Sub
 
