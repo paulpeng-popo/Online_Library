@@ -10,4 +10,12 @@
 
     End Sub
 
+    Protected Sub Logout_Click(sender As Object, e As EventArgs) Handles Logout.Click
+
+        Session.Clear()
+        Response.Cookies.Remove("User_Info")
+        Response.Redirect("login.aspx")
+
+    End Sub
+
 End Class

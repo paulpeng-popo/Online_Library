@@ -103,6 +103,7 @@
     <Content Include="bookshelf.aspx" />
     <Content Include="bookshelf.css" />
     <Content Include="controlpanel.aspx" />
+    <Content Include="mybook.aspx" />
     <Content Include="registration.aspx" />
     <Content Include="registration.css" />
     <Content Include="login.aspx" />
@@ -158,6 +159,7 @@
     <Content Include="resources\yinyang.jpg" />
     <Content Include="resources\youwin.jpg" />
     <Content Include="resources\zigzag.jpg" />
+    <Content Include="userpanel.aspx" />
     <Content Include="users_management.aspx" />
   </ItemGroup>
   <ItemGroup>
@@ -173,6 +175,13 @@
     </Compile>
     <Compile Include="controlpanel.aspx.vb">
       <DependentUpon>controlpanel.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="mybook.aspx.designer.vb">
+      <DependentUpon>mybook.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mybook.aspx.vb">
+      <DependentUpon>mybook.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="registration.aspx.designer.vb">
@@ -208,11 +217,25 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="userpanel.aspx.designer.vb">
+      <DependentUpon>userpanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="userpanel.aspx.vb">
+      <DependentUpon>userpanel.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="users_management.aspx.designer.vb">
       <DependentUpon>users_management.aspx</DependentUpon>
     </Compile>
     <Compile Include="users_management.aspx.vb">
       <DependentUpon>users_management.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="user_settings.aspx.designer.vb">
+      <DependentUpon>user_settings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user_settings.aspx.vb">
+      <DependentUpon>user_settings.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
   </ItemGroup>
@@ -234,6 +257,7 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
+    <Content Include="user_settings.aspx" />
     <Content Include="web.config" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>

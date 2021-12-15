@@ -19,9 +19,18 @@ Public Class bookshelf
 
     End Sub
 
+    Protected Sub LogoutButton_Click(sender As Object, e As EventArgs) Handles LogoutButton.Click
+
+        Session.Clear()
+        Response.Cookies.Remove("User_Info")
+        Response.Redirect("login.aspx")
+
+    End Sub
+
     Protected Sub Detail_Click(ByVal sender As Object, ByVal e As CommandEventArgs)
 
         Dim ISBN As String = e.CommandArgument.ToString()
+        Session.Add("Selected_Book", ISBN)
 
         Dim connection As New SqlConnection("Server = paul\sqlexpress; Database = Library; Integrated Security = true")
         Dim command As New SqlCommand("SELECT * FROM Books WHERE ISBN = @isbn", connection)
@@ -50,11 +59,48 @@ Public Class bookshelf
 
     End Sub
 
+    Protected Sub UserBook_Click(sender As Object, e As EventArgs) Handles UserBook.Click
+
+        Response.Redirect("userpanel.aspx")
+
+    End Sub
+
+    Protected Sub SimpleRead_Click(sender As Object, e As EventArgs) Handles SimpleRead.Click
+
+
+
+    End Sub
+
+    Protected Sub Borrow_Click(sender As Object, e As EventArgs) Handles Borrow.Click
+
+        Dim ISBN As String = Session("Selected_Book")
+
+        Dim connection As New SqlConnection("Server = paul\sqlexpress; Database = Library; Integrated Security = true")
+        Dim command As New SqlCommand("INSERT INTO [dbo].[LibraryCard]
+           ([ISBN]
+           ,[username]
+           ,[start_date]
+           ,[due_date])
+     VALUES
+           (<ISBN, bigint,>
+           ,<username, nvarchar(50),>
+           ,<start_date, date,>
+           ,<due_date, date,>)", connection)
+
+        command.Parameters.Add("@isbn", SqlDbType.BigInt).Value = ISBN.Trim()
+        Dim adapter As New SqlDataAdapter(command)
+        Dim table As New DataTable()
+        adapter.Fill(table)
+
+    End Sub
+
     Protected Sub ReturnButton_Click(sender As Object, e As EventArgs) Handles ReturnButton.Click
 
         SearchHeader.Visible = True
         LibraryWindow.Visible = True
         BookWindow.Visible = False
+        Session.Remove("Selected_Book")
 
     End Sub
+
 End Class

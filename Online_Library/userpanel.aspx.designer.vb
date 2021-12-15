@@ -11,7 +11,7 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class controlpanel
+Partial Public Class userpanel
 
     '''<summary>
     '''form1 control.
@@ -23,11 +23,11 @@ Partial Public Class controlpanel
     Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
 
     '''<summary>
-    '''Logout control.
+    '''SearchBook control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Logout As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents SearchBook As Global.System.Web.UI.WebControls.Button
 End Class

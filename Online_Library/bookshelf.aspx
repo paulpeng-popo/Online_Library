@@ -18,6 +18,9 @@
         %>
         <asp:Panel ID="SearchHeader" runat="server">
             <div class="header-container">
+                <div id="LogoutZone" style="float: left; padding: 10px 0 10px 20px";">
+                    <asp:Button ID="LogoutButton" runat="server" Text="登出" BorderStyle="Solid" Height="30px" Width="60px" />
+                </div>
                 <div id="BookText" class="choose-block">
                     <asp:Label ID="BookName" runat="server" Text="書名(或包含的字詞):" Font-Bold="True" Font-Size="Large"></asp:Label>
                     <asp:TextBox ID="BookNameTextBox" runat="server" Text="<所有書目>" Height="18px" Width="300px" AutoPostBack="True"></asp:TextBox>
@@ -41,6 +44,9 @@
                 </div>
                 <div id="UserInfo" style="float: right; padding: 10px 30px 10px 0">
                     <asp:Label ID="UserNameTop" runat="server" Font-Bold="True" Font-Size="Large" BorderStyle="Groove" Height="30px"></asp:Label>
+                </div>
+                <div id="UserButton" style="float:right; padding: 0 30px 20px 20px">
+                    <asp:Button ID="UserBook" runat="server" Text="我的書庫" BorderStyle="Solid" Height="30px" Width="100px" />
                 </div>
             </div>
         </asp:Panel>
@@ -69,7 +75,8 @@
                             <td><%# Eval("quantity") %></td>
                             <td>
                                 <asp:Button ID="Details" runat="server" Text="我要借閱" BorderStyle="Solid" Height="30px"
-                                    CommandArgument='<%# Eval("ISBN") %>' OnCommand="Detail_Click" /></td>
+                                    CommandArgument='<%# Eval("ISBN") %>' OnCommand="Detail_Click" />
+                            </td>
                         </tr>
                     </ItemTemplate>
                     <FooterTemplate>

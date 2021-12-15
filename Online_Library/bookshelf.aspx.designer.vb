@@ -32,6 +32,15 @@ Partial Public Class bookshelf
     Protected WithEvents SearchHeader As Global.System.Web.UI.WebControls.Panel
 
     '''<summary>
+    '''LogoutButton control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents LogoutButton As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
     '''BookName control.
     '''</summary>
     '''<remarks>
@@ -102,6 +111,15 @@ Partial Public Class bookshelf
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents UserNameTop As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''UserBook control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents UserBook As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
     '''LibraryWindow control.
