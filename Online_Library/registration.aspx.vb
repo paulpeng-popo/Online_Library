@@ -19,11 +19,6 @@ Public Class registration
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
-        'Dim cookie As HttpCookie = Request.Cookies("User_Info")
-        'If cookie IsNot Nothing Then
-        'Response.Redirect("login.aspx")
-        'End If
-
     End Sub
 
     Protected Sub Check_Click(sender As Object, e As EventArgs) Handles Check.Click

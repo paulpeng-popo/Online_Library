@@ -5,8 +5,21 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Online Library System</title>
+    <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap.min.css" media="screen" />
     <link href="bookshelf.css" rel="stylesheet" />
-    <script> history.forward(); </script>
+    <script type="text/javascript">
+
+        function ShowPopup(title, body) {
+            $("#MyPopup .modal-title").html(title);
+            $("#MyPopup .modal-body pre").html(body);
+            $("#MyPopup").modal("show");
+        }
+
+        history.forward();
+
+    </script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -16,9 +29,25 @@
             Response.ExpiresAbsolute = DateTime.Now.AddDays(-1)
             Response.CacheControl = "no-cache"
         %>
+        <div id="MyPopup" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title"></h4>
+                    </div>
+                    <div class="modal-body">
+                        <pre></pre>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <asp:Panel ID="SearchHeader" runat="server">
             <div class="header-container">
-                <div id="LogoutZone" style="float: left; padding: 10px 0 10px 20px";">
+                <div id="LogoutZone" style="float: left; padding: 10px 0 10px 20px;">
                     <asp:Button ID="LogoutButton" runat="server" Text="登出" BorderStyle="Solid" Height="30px" Width="60px" />
                 </div>
                 <div id="BookText" class="choose-block">
@@ -45,7 +74,7 @@
                 <div id="UserInfo" style="float: right; padding: 10px 30px 10px 0">
                     <asp:Label ID="UserNameTop" runat="server" Font-Bold="True" Font-Size="Large" BorderStyle="Groove" Height="30px"></asp:Label>
                 </div>
-                <div id="UserButton" style="float:right; padding: 0 30px 20px 20px">
+                <div id="UserButton" style="float: right; padding: 0 30px 20px 20px">
                     <asp:Button ID="UserBook" runat="server" Text="我的書庫" BorderStyle="Solid" Height="30px" Width="100px" />
                 </div>
             </div>
@@ -102,7 +131,7 @@
                 <div style="display: inline-block">
                     <asp:Image ID="BookImage" runat="server" Height="280px" Width="200px" />
                 </div>
-                <div style="display: inline-block; height: 280px; width: 550px;">
+                <div style="display: inline-block; height: 280px; width: 700px;">
                     <ul>
                         <li><strong>書名:</strong>
                             <asp:Label ID="Name" runat="server" Text="" Font-Size="Large"></asp:Label></li>
