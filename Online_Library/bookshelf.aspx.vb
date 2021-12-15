@@ -14,8 +14,9 @@ Public Class bookshelf
             BookNameTextBox.Text = "<所有書目>"
         End If
 
-        UserNameTop.Text = "登入身分: " + Session(Session(cookie("key")))
-        UserNameDown.Text = "登入身分: " + Session(Session(cookie("key")))
+        Session.Add("CurrentUser", Session(Session(cookie("key"))))
+        UserNameTop.Text = "登入身分: " + Session("CurrentUser")
+        UserNameDown.Text = "登入身分: " + Session("CurrentUser")
 
         Dim connection As New SqlConnection("Server = paul\sqlexpress; Database = Library; Integrated Security = true")
 
@@ -67,8 +68,9 @@ Public Class bookshelf
         Dim table As New DataTable()
         adapter.Fill(table)
 
-        Dim findcommand As New SqlCommand("SELECT * FROM LibraryCard WHERE ISBN = @isbn", connection)
+        Dim findcommand As New SqlCommand("SELECT * FROM LibraryCard WHERE ISBN = @isbn AND username = @current", connection)
         findcommand.Parameters.Add("@isbn", SqlDbType.BigInt).Value = ISBN
+        findcommand.Parameters.Add("@current", SqlDbType.NVarChar).Value = Session("CurrentUser")
         Dim newadapter As New SqlDataAdapter(findcommand)
         Dim newtable As New DataTable()
         newadapter.Fill(newtable)
@@ -137,7 +139,7 @@ Public Class bookshelf
         Dim connection As New SqlConnection("Server = paul\sqlexpress; Database = Library; Integrated Security = true")
         Dim command As New SqlCommand("INSERT INTO [LibraryCard] ( [ISBN], [username], [start_date], [due_date] ) VALUES ( @ISBN, @username, @startDate, @dueDate )", connection)
         command.Parameters.Add("@ISBN", SqlDbType.BigInt).Value = ISBN
-        command.Parameters.Add("@username", SqlDbType.NVarChar).Value = Session(Session(cookie("key")))
+        command.Parameters.Add("@username", SqlDbType.NVarChar).Value = Session("CurrentUser")
         command.Parameters.Add("@startDate", SqlDbType.Date).Value = Date.Now()
         command.Parameters.Add("@dueDate", SqlDbType.Date).Value = Date.Now.AddDays(14)
         Dim adapter As New SqlDataAdapter(command)

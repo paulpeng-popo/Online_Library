@@ -45,7 +45,11 @@
                     </table>
                 </FooterTemplate>
             </asp:Repeater>
-            <asp:SqlDataSource ID="BooksData" runat="server" ConnectionString="<%$ ConnectionStrings:LibraryConnectionString %>" SelectCommand="SELECT [bookname], [bookimage], [author], [category], [LibraryCard].[ISBN] FROM [Books], [LibraryCard] WHERE [LibraryCard].[ISBN] = [Books].[ISBN] ORDER BY [start_date] DESC"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="BooksData" runat="server" ConnectionString="<%$ ConnectionStrings:LibraryConnectionString %>" SelectCommand="SELECT [bookname], [bookimage], [author], [category], [LibraryCard].[ISBN] FROM [Books], [LibraryCard] WHERE [LibraryCard].[ISBN] = [Books].[ISBN] AND [LibraryCard].[username] = @currentUser ORDER BY [start_date] DESC">
+                <SelectParameters>
+                    <asp:SessionParameter Name="currentUser" SessionField="CurrentUser" />
+                </SelectParameters>
+            </asp:SqlDataSource>
         </div>
     </form>
 </body>

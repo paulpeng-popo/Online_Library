@@ -114,12 +114,13 @@
                 </asp:Repeater>
                 <asp:SqlDataSource ID="CategoryData" runat="server" ConnectionString="<%$ ConnectionStrings:LibraryConnectionString %>" SelectCommand="SELECT DISTINCT [category] FROM [Books] ORDER BY [category]"></asp:SqlDataSource>
                 <asp:SqlDataSource ID="YearData" runat="server" ConnectionString="<%$ ConnectionStrings:LibraryConnectionString %>" SelectCommand="SELECT DISTINCT [pubyear] FROM [Books] ORDER BY [pubyear] DESC"></asp:SqlDataSource>
-                <asp:SqlDataSource ID="BooksData" runat="server" ConnectionString="<%$ ConnectionStrings:LibraryConnectionString %>" SelectCommand="SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT [bookname], [author], [category], [Books].[ISBN], [pubyear], [quantity] FROM [Books] WHERE NOT EXISTS (SELECT * FROM [LibraryCard] WHERE [Books].[ISBN] = [LibraryCard].[ISBN] AND @quantity = 1)) AS [DontHaveTable] WHERE [DontHaveTable].[quantity] &gt;= @quantity OR @quantity = 0) AS [QuantityTable] WHERE [QuantityTable].[pubyear] = @pubyear OR @pubyear = 0) AS [YearTable] WHERE [YearTable].[category] = @category OR @category LIKE N'%所有種類%') AS [CategoryTable] WHERE [CategoryTable].[bookname] LIKE '%' + @bookname + '%' OR @bookname LIKE N'%所有書目%' ORDER BY [bookname]">
+                <asp:SqlDataSource ID="BooksData" runat="server" ConnectionString="<%$ ConnectionStrings:LibraryConnectionString %>" SelectCommand="SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT * FROM (SELECT [bookname], [author], [category], [Books].[ISBN], [pubyear], [quantity] FROM [Books] WHERE NOT EXISTS (SELECT * FROM [LibraryCard] WHERE [Books].[ISBN] = [LibraryCard].[ISBN] AND @currentUser = [LibraryCard].[username] AND @quantity = 1)) AS [DontHaveTable] WHERE [DontHaveTable].[quantity] &gt;= @quantity OR @quantity = 0) AS [QuantityTable] WHERE [QuantityTable].[pubyear] = @pubyear OR @pubyear = 0) AS [YearTable] WHERE [YearTable].[category] = @category OR @category LIKE N'%所有種類%') AS [CategoryTable] WHERE [CategoryTable].[bookname] LIKE '%' + @bookname + '%' OR @bookname LIKE N'%所有書目%' ORDER BY [bookname]">
                     <SelectParameters>
                         <asp:ControlParameter ControlID="BookNameTextBox" Name="bookname" Type="String" PropertyName="Text" />
                         <asp:ControlParameter ControlID="CategoryDropDownList" Name="category" Type="String" PropertyName="SelectedValue" />
                         <asp:ControlParameter ControlID="YearDropDownList" Name="pubyear" Type="Int32" PropertyName="SelectedValue" />
                         <asp:ControlParameter ControlID="AvailableCheckBox" Name="quantity" Type="Int32" PropertyName="Checked" />
+                        <asp:SessionParameter Name="currentUser" SessionField="CurrentUser" />
                     </SelectParameters>
                 </asp:SqlDataSource>
             </asp:Panel>
