@@ -1,4 +1,4 @@
-﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="users_management.aspx.vb" Inherits="Online_Library.users_management" %>
+﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="cards_management.aspx.vb" Inherits="Online_Library.cards_management" %>
 
 <!DOCTYPE html>
 

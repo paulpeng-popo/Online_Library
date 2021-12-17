@@ -102,7 +102,9 @@
   <ItemGroup>
     <Content Include="bookshelf.aspx" />
     <Content Include="bookshelf.css" />
+    <Content Include="cards_management.aspx" />
     <Content Include="controlpanel.aspx" />
+    <Content Include="library_management.aspx" />
     <Content Include="mybook.aspx" />
     <Content Include="registration.aspx" />
     <Content Include="registration.css" />
@@ -170,11 +172,25 @@
       <DependentUpon>bookshelf.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="cards_management.aspx.designer.vb">
+      <DependentUpon>cards_management.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="cards_management.aspx.vb">
+      <DependentUpon>cards_management.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="controlpanel.aspx.designer.vb">
       <DependentUpon>controlpanel.aspx</DependentUpon>
     </Compile>
     <Compile Include="controlpanel.aspx.vb">
       <DependentUpon>controlpanel.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="library_management.aspx.designer.vb">
+      <DependentUpon>library_management.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="library_management.aspx.vb">
+      <DependentUpon>library_management.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="mybook.aspx.designer.vb">

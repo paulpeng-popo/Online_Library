@@ -26,10 +26,10 @@
                         <iframe id="iframeUsers" src="users_management.aspx" style="width: 97.5vw; height: 86.5vh; padding: 10px; margin: 0"></iframe>
                     </div>
                     <div role="tabpanel" class="tab-pane" id="books_CRUD">
-                        <iframe id="IframeLibrary" src="login.aspx" style="width: 97.5vw; height: 86.5vh; padding: 10px; margin: 0"></iframe>
+                        <iframe id="IframeLibrary" src="library_management.aspx" style="width: 97.5vw; height: 86.5vh; padding: 10px; margin: 0"></iframe>
                     </div>
                     <div role="tabpanel" class="tab-pane" id="library_cards">
-                        <iframe id="IframeCards" src="registration.aspx" style="width: 97.5vw; height: 86.5vh; padding: 10px; margin: 0"></iframe>
+                        <iframe id="IframeCards" src="cards_management.aspx" style="width: 97.5vw; height: 86.5vh; padding: 10px; margin: 0"></iframe>
                     </div>
                 </div>
             </div>
