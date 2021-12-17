@@ -23,7 +23,7 @@ Public Class login
         Dim cookie As HttpCookie = Request.Cookies("User_Info")
         If cookie IsNot Nothing AndAlso cookie("value") = Session(cookie("key")) Then
             If cookie("identity") = "admin" Then
-                Response.Redirect("users_management.aspx")
+                Response.Redirect("controlpanel.aspx")
             ElseIf cookie("identity") = "user" Then
                 Response.Redirect("bookshelf.aspx")
             End If
