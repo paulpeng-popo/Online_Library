@@ -39,4 +39,31 @@ Partial Public Class mybook
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents BooksData As Global.System.Web.UI.WebControls.SqlDataSource
+
+    '''<summary>
+    '''Panel control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Panel As Global.System.Web.UI.WebControls.Panel
+
+    '''<summary>
+    '''BookName control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents BookName As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''BackButton control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents BackButton As Global.System.Web.UI.WebControls.Button
 End Class
